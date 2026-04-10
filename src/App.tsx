@@ -1,8 +1,28 @@
+import { AppScreenshots } from './components/AppScreenshots'
+import { FAQ } from './components/FAQ'
+import { Features } from './components/Features'
+import { FinalCTA } from './components/FinalCTA'
+import { Footer } from './components/Footer'
+import { Hero } from './components/Hero'
+import { HowItWorks } from './components/HowItWorks'
+import { Nav } from './components/Nav'
+import { TrustStrip } from './components/TrustStrip'
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-iceLight to-brand-ice">
-      <h1 className="text-4xl font-extrabold text-brand-deep">Tailwind loaded</h1>
-    </div>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <TrustStrip />
+        <Features />
+        <HowItWorks />
+        <AppScreenshots />
+        <FAQ />
+        <FinalCTA />
+      </main>
+      <Footer />
+    </>
   )
 }
 
