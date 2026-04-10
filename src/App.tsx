@@ -1,28 +1,17 @@
-import { AppScreenshots } from './components/AppScreenshots'
-import { FAQ } from './components/FAQ'
-import { Features } from './components/Features'
-import { FinalCTA } from './components/FinalCTA'
-import { Footer } from './components/Footer'
-import { Hero } from './components/Hero'
-import { HowItWorks } from './components/HowItWorks'
-import { Nav } from './components/Nav'
-import { TrustStrip } from './components/TrustStrip'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { Privacy } from './pages/Privacy'
+import { Terms } from './pages/Terms'
 
 function App() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <TrustStrip />
-        <Features />
-        <HowItWorks />
-        <AppScreenshots />
-        <FAQ />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
