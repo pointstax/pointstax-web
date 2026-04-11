@@ -12,10 +12,10 @@ export function Nav() {
 
   return (
     <nav
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`sticky top-0 z-40 transition-all duration-500 ${
         scrolled
-          ? 'backdrop-blur-xl bg-brand-paper/85 border-b border-brand-rule/60'
-          : 'bg-transparent'
+          ? 'backdrop-blur-xl bg-brand-paper/92 border-b border-brand-rule/60 shadow-ink'
+          : 'bg-brand-paper/0 border-b border-transparent'
       }`}
     >
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 lg:px-10 py-5">

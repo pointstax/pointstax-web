@@ -5,7 +5,7 @@ import { WaitlistForm } from './WaitlistForm'
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden grain bg-brand-paper pt-32 pb-24 lg:pt-40 lg:pb-32">
+    <section className="relative overflow-hidden grain bg-brand-paper pt-14 pb-24 lg:pt-20 lg:pb-32">
       {/* grid background */}
       <div
         aria-hidden="true"
@@ -26,8 +26,11 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10">
         <div className="rule-top flex items-center justify-between pt-6 pb-10">
-          <span className="label-eyebrow">Vol. 001 · Launching {LAUNCH_DATE}</span>
-          <span className="label-eyebrow hidden sm:inline">The rewards broadsheet, reimagined</span>
+          <span className="label-eyebrow">Dateline · {LAUNCH_DATE}</span>
+          <span className="label-eyebrow hidden md:inline">
+            For people who <em className="font-display italic">read the fine print</em>
+          </span>
+          <span className="label-eyebrow hidden sm:inline">Front Page · A1</span>
         </div>
 
         <div className="grid gap-16 lg:grid-cols-[1.15fr_1fr] lg:gap-20 items-end">
@@ -56,12 +59,17 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-brand-ink/72 font-light">
-              The first AI that actually knows{' '}
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-brand-ink/75 font-light">
+              <span className="float-left font-display text-[5.2rem] leading-[0.78] pr-3 pt-1.5 text-brand-ink">
+                A
+              </span>
+              n AI that actually knows{' '}
               <em className="font-display italic text-brand-ink text-xl">which card</em>{' '}
               earns the most on{' '}
               <em className="font-display italic text-brand-ink text-xl">every purchase</em>
-              . Location-aware. Portfolio-wide. Gloriously obsessive about your points.
+              . Location-aware. Portfolio-wide. Obsessive about your points —
+              because if you've ever pulled out the wrong card at a Whole Foods
+              checkout, you know the small, quiet grief of it.
             </p>
 
             {LAUNCH_MODE === 'waitlist' ? (

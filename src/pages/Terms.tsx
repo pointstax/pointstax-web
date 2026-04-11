@@ -1,11 +1,13 @@
 import { Footer } from '../components/Footer'
+import { Masthead } from '../components/Masthead'
 import { Nav } from '../components/Nav'
 
 export function Terms() {
   return (
     <>
+      <Masthead />
       <Nav />
-      <main className="mx-auto max-w-3xl px-6 py-32 text-brand-navy">
+      <main className="mx-auto max-w-3xl px-6 py-20 lg:py-24 text-brand-ink">
         <h1 className="text-4xl font-extrabold">Terms of Service</h1>
         <p className="mt-2 text-sm text-brand-navy/60">Effective: April 10, 2026</p>
 
