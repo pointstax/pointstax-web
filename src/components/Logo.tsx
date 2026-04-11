@@ -5,22 +5,19 @@ interface LogoProps {
 
 export function Logo({ className = '', showWordmark = true }: LogoProps) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <a href="/" className={`group inline-flex items-center gap-3 ${className}`}>
       <img
         src="/logo.svg"
         alt="PointStax"
-        className="h-9 w-9"
+        className="h-9 w-9 transition-transform group-hover:rotate-[4deg]"
         width={36}
         height={36}
       />
       {showWordmark && (
-        <span
-          className="text-xl font-extrabold text-brand-navy"
-          style={{ letterSpacing: '0.02em' }}
-        >
+        <span className="font-display text-2xl italic text-brand-ink leading-none tracking-tight">
           PointStax
         </span>
       )}
-    </div>
+    </a>
   )
 }

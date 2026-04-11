@@ -1,19 +1,28 @@
 const items = [
-  { icon: '🔒', label: 'Bank-level encryption' },
-  { icon: '👁', label: 'Read-only access' },
-  { icon: '🛡', label: 'Your data stays yours' },
+  'Bank-level encryption',
+  'Read-only access',
+  'No credit pull',
+  'Your data stays yours',
+  'Never sold, never shared',
+  'SOC 2 ready',
 ]
 
+/**
+ * Infinite marquee of trust signals. No emoji — just refined typography.
+ */
 export function TrustStrip() {
+  const doubled = [...items, ...items]
   return (
-    <section className="border-y border-brand-ice bg-white py-6">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-12 gap-y-3 px-6 text-sm font-medium text-brand-navy/70">
-        {items.map((item) => (
-          <div key={item.label} className="flex items-center gap-2">
-            <span aria-hidden="true">{item.icon}</span>
-            <span>{item.label}</span>
-          </div>
-        ))}
+    <section className="relative bg-brand-ink text-brand-paper overflow-hidden py-6 border-y border-brand-ink">
+      <div className="mask-fade-edges">
+        <div className="flex gap-16 animate-marquee whitespace-nowrap w-max">
+          {doubled.map((item, i) => (
+            <div key={i} className="flex items-center gap-16">
+              <span className="font-display text-2xl italic text-brand-paper/90">{item}</span>
+              <span className="font-display text-2xl text-brand-gold select-none">✦</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

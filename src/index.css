@@ -6,8 +6,82 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    font-feature-settings: 'ss01', 'cv11', 'calt';
   }
   body {
-    @apply bg-white text-brand-navy font-sans;
+    @apply bg-brand-paper text-brand-ink font-sans;
+    font-feature-settings: 'ss01', 'cv11', 'kern', 'calt';
+  }
+  ::selection {
+    background: #0A1929;
+    color: #E9B44C;
+  }
+}
+
+@layer components {
+  .label-eyebrow {
+    @apply font-mono text-[0.68rem] uppercase tracking-widest text-brand-ink/55;
+  }
+  .display-italic {
+    @apply font-display italic;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .rule-top {
+    @apply border-t border-brand-rule/70;
+  }
+  .rule-bottom {
+    @apply border-b border-brand-rule/70;
+  }
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .mask-fade-r {
+    mask-image: linear-gradient(to right, black 70%, transparent);
+    -webkit-mask-image: linear-gradient(to right, black 70%, transparent);
+  }
+  .mask-fade-edges {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+}
+
+/* Page load reveal — staggered on direct children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: reveal 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.reveal-stagger > *:nth-child(1) { animation-delay: 120ms; }
+.reveal-stagger > *:nth-child(2) { animation-delay: 220ms; }
+.reveal-stagger > *:nth-child(3) { animation-delay: 320ms; }
+.reveal-stagger > *:nth-child(4) { animation-delay: 420ms; }
+.reveal-stagger > *:nth-child(5) { animation-delay: 520ms; }
+.reveal-stagger > *:nth-child(6) { animation-delay: 620ms; }
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

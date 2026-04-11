@@ -12,20 +12,24 @@ export function Nav() {
 
   return (
     <nav
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'backdrop-blur-md bg-white/80 shadow-sm'
+          ? 'backdrop-blur-xl bg-brand-paper/85 border-b border-brand-rule/60'
           : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 lg:px-10 py-5">
         <Logo />
-        <a
-          href="#hero-form"
-          className="rounded-lg bg-brand-deep px-4 py-2 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
-        >
-          Get early access
-        </a>
+        <div className="flex items-center gap-8">
+          <span className="label-eyebrow hidden md:inline">Est. 2026 · New York</span>
+          <a
+            href="#hero-form"
+            className="group relative inline-flex items-center gap-2 rounded-full bg-brand-ink px-5 py-2.5 text-sm font-medium text-brand-paper transition-all hover:bg-brand-deep"
+          >
+            <span>Get early access</span>
+            <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
+          </a>
+        </div>
       </div>
     </nav>
   )
