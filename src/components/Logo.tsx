@@ -1,20 +1,25 @@
 interface LogoProps {
   className?: string
   showWordmark?: boolean
+  dark?: boolean
 }
 
-export function Logo({ className = '', showWordmark = true }: LogoProps) {
+export function Logo({ className = '', showWordmark = true, dark = false }: LogoProps) {
   return (
-    <a href="/" className={`group inline-flex items-center gap-3 ${className}`}>
+    <a href="/" className={`group inline-flex items-center gap-2.5 ${className}`}>
       <img
         src="/logo.svg"
         alt="PointStax"
-        className="h-9 w-9 transition-transform group-hover:rotate-[4deg]"
-        width={36}
-        height={36}
+        className="h-8 w-8 transition-transform group-hover:rotate-[6deg]"
+        width={32}
+        height={32}
       />
       {showWordmark && (
-        <span className="font-display text-2xl italic text-brand-ink leading-none tracking-tight">
+        <span
+          className={`text-lg font-semibold tracking-tight leading-none ${
+            dark ? 'text-white' : 'text-brand-ink'
+          }`}
+        >
           PointStax
         </span>
       )}

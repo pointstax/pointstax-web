@@ -2,88 +2,81 @@ import { motion } from 'framer-motion'
 
 const steps = [
   {
-    num: 'I',
-    time: '0:00',
+    num: '01',
     title: 'Add your cards',
-    body: 'Tell us which cards you have. We never ask for numbers, PINs, or credentials. No credit pull. No account linking.',
+    body: 'Tell us which cards you have. No credentials, no credit pull, no account linking. Takes about 42 seconds.',
   },
   {
-    num: 'II',
-    time: '0:42',
-    title: 'Tap, and it thinks',
-    body: 'Open the app at checkout. PointStax knows the merchant, your location, and your portfolio. The answer is instant.',
+    num: '02',
+    title: 'Open before you pay',
+    body: "One tap at checkout. PointStax knows the merchant, your location, and your portfolio — and hands you the right answer instantly.",
   },
   {
-    num: 'III',
-    time: '∞',
-    title: 'Watch the stack grow',
-    body: 'Real redemption value in your pocket. Category-by-category. Card-by-card. Points that actually mean something.',
+    num: '03',
+    title: 'Watch the stack compound',
+    body: 'Real redemption value, tracked automatically. Category by category. Card by card. Points that actually mean something.',
   },
 ]
 
 export function HowItWorks() {
   return (
-    <section className="relative bg-brand-ink text-brand-paper py-28 lg:py-36 overflow-hidden">
-      {/* gold radial */}
+    <section id="how" className="relative bg-brand-surface py-24 lg:py-32 border-y border-brand-rule">
+      {/* Subtle soft mesh bg */}
       <div
         aria-hidden="true"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[70%] opacity-30 blur-[140px]"
-        style={{ background: 'radial-gradient(ellipse, rgba(233, 180, 76, 0.35), transparent 60%)' }}
+        className="absolute inset-0 bg-mesh-soft opacity-80 pointer-events-none"
       />
-      {/* subtle noise */}
-      <div className="absolute inset-0 grain" />
 
       <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10">
-        <div className="max-w-3xl rule-bottom border-brand-paper/15 pb-12 mb-20">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-10 bg-brand-gold" />
-            <span className="label-eyebrow !text-brand-gold">Chapter Two</span>
+        <div className="max-w-2xl mb-20">
+          <div className="inline-flex items-center gap-2 mb-5">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-electric" />
+            <span className="label-eyebrow">Flow</span>
           </div>
-          <h2 className="mt-5 font-display text-display-lg">
-            The <em className="italic text-brand-gold">ritual</em>.
+          <h2 className="font-display text-display-lg font-semibold text-brand-ink text-balance">
+            Three small acts.
+            <br />
+            <span className="text-brand-muted">Forever more rewards.</span>
           </h2>
-          <p className="mt-6 max-w-xl text-lg text-brand-paper/65 font-light leading-relaxed">
-            Three small acts. Forever more rewards.
-          </p>
         </div>
 
-        {/* timeline */}
-        <div className="relative">
-          {/* vertical rule (desktop) */}
+        {/* Horizontal flow */}
+        <div className="relative grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
+          {/* connector line — desktop only */}
           <div
             aria-hidden="true"
-            className="hidden lg:block absolute left-[68px] top-0 bottom-0 w-px bg-brand-paper/15"
+            className="hidden md:block absolute left-0 right-0 top-10 h-px"
+            style={{
+              background:
+                'linear-gradient(to right, transparent 0%, #E2E8F0 10%, #E2E8F0 90%, transparent 100%)',
+            }}
           />
 
-          <div className="space-y-20 lg:space-y-28">
-            {steps.map((s, i) => (
-              <motion.div
-                key={s.num}
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.9, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="relative grid lg:grid-cols-[140px_1fr_auto] gap-8 items-start"
-              >
-                {/* Roman numeral marker */}
-                <div className="flex items-center gap-4">
-                  <div className="hidden lg:flex w-4 h-4 rounded-full bg-brand-gold ring-8 ring-brand-ink" />
-                  <span className="font-display text-5xl italic text-brand-paper/90 leading-none">
-                    {s.num}
-                  </span>
-                </div>
+          {steps.map((s, i) => (
+            <motion.div
+              key={s.num}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="relative"
+            >
+              {/* Node */}
+              <div className="relative z-10 inline-flex items-center gap-3 rounded-full border border-brand-rule bg-brand-canvas px-4 py-2.5 shadow-cardSoft">
+                <span className="h-2 w-2 rounded-full bg-brand-blue" />
+                <span className="font-mono text-xs font-medium tracking-widest text-brand-ink">
+                  {s.num}
+                </span>
+              </div>
 
-                <div className="max-w-2xl">
-                  <h3 className="font-display text-3xl lg:text-4xl">{s.title}</h3>
-                  <p className="mt-3 text-base lg:text-lg text-brand-paper/60 leading-relaxed">{s.body}</p>
-                </div>
-
-                <div className="hidden lg:block label-eyebrow !text-brand-gold whitespace-nowrap mt-2">
-                  {s.time}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              <h3 className="mt-6 font-display text-2xl lg:text-3xl font-semibold text-brand-ink leading-tight">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-brand-muted leading-relaxed max-w-sm">
+                {s.body}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

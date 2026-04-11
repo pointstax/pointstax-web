@@ -3,85 +3,84 @@ import { motion } from 'framer-motion'
 const features = [
   {
     num: '01',
-    title: 'Knows the card',
-    display: 'the card',
-    body: 'Advanced AI analyzes your spending patterns and matches every purchase to the card that earns the most. No lookup tables. No guessing. Just the right answer, instantly.',
-    stat: '3.2×',
-    statLabel: 'more points on average',
+    title: 'Context-aware reasoning',
+    body: 'Every purchase is evaluated against your entire wallet, your location, the merchant category, and active bonuses — in under 60ms.',
+    stat: '60ms',
+    statLabel: 'inference time',
   },
   {
     num: '02',
-    title: 'Knows the place',
-    display: 'the place',
-    body: 'Location-aware recommendations for every store, restaurant, gas station, airline, and grocery chain. The café next door. The hotel in Lisbon. Your corner bodega.',
-    stat: '127',
-    statLabel: 'merchant categories',
+    title: 'Portfolio intelligence',
+    body: 'PointStax understands the full shape of your rewards portfolio: sign-up bonuses, spending caps, expiring points, and transfer partners.',
+    stat: '∞',
+    statLabel: 'cards supported',
   },
   {
     num: '03',
-    title: 'Knows your wallet',
-    display: 'your wallet',
-    body: 'Track your entire rewards portfolio — balances, perks, sign-up bonuses, annual fees, expiring points. At a glance. Never miss another benefit.',
-    stat: '∞',
-    statLabel: 'cards per portfolio',
+    title: 'Real-world value',
+    body: "Not marketing math. We calculate the actual redemption value per point — so you know when to hoard, burn, and transfer.",
+    stat: '1.8¢',
+    statLabel: 'avg. value per point',
   },
   {
     num: '04',
-    title: 'Knows real value',
-    display: 'real value',
-    body: `Not marketing math. Actual redemption value. We calculate what your points are worth for flights, hotels, transfers, cash back — and tell you when to hoard and when to burn.`,
-    stat: '1.8¢',
-    statLabel: 'avg. value per point',
+    title: 'Quietly proactive',
+    body: 'Notices when a card hits its quarterly cap, when a sign-up bonus window closes, when an annual credit resets. Handles the math so you don\'t.',
+    stat: '24/7',
+    statLabel: 'background monitoring',
   },
 ]
 
 export function Features() {
   return (
-    <section id="features" className="relative bg-brand-paper py-24 lg:py-32 grain">
+    <section id="features" className="relative bg-brand-canvas py-24 lg:py-32">
       <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10">
-        {/* Section header */}
-        <div className="max-w-3xl rule-bottom pb-12 mb-16">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-10 bg-brand-ink" />
-            <span className="label-eyebrow">Chapter One</span>
+        <div className="max-w-2xl mb-16">
+          <div className="inline-flex items-center gap-2 mb-5">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
+            <span className="label-eyebrow">System</span>
           </div>
-          <h2 className="mt-5 font-display text-display-lg text-brand-ink">
-            Stop guessing. Start <em className="italic text-brand-deep">stacking</em>.
+          <h2 className="font-display text-display-lg font-semibold text-brand-ink text-balance">
+            An AI designed for your wallet.
+            <br />
+            <span className="text-brand-muted">Not for a pitch deck.</span>
           </h2>
-          <p className="mt-6 max-w-xl text-lg text-brand-ink/65 font-light leading-relaxed">
-            Four things PointStax obsesses over so you don't have to.
-          </p>
         </div>
 
-        {/* Editorial two-column grid with alternating layouts */}
-        <div className="grid gap-x-12 gap-y-20 lg:grid-cols-2">
+        <div className="grid gap-px bg-brand-rule rounded-3xl overflow-hidden border border-brand-rule sm:grid-cols-2">
           {features.map((f, i) => (
             <motion.article
               key={f.num}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.9, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group"
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.8, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative bg-brand-surface p-8 lg:p-10 hover:bg-brand-canvas transition-colors"
             >
-              <div className="flex items-start justify-between mb-6 rule-bottom pb-5">
-                <span className="font-mono text-xs tracking-widest text-brand-ink/55">
-                  No. {f.num}
+              <div className="flex items-start justify-between mb-6">
+                <span className="font-mono text-xs tracking-widest text-brand-muted">
+                  {f.num}
                 </span>
-                <span className="font-display italic text-brand-ink/40 text-lg">
-                  chapter.{f.num.padStart(2, '0')}
-                </span>
+                <div className="inline-flex items-baseline gap-2 rounded-full border border-brand-rule bg-brand-canvas/70 px-3 py-1">
+                  <span className="font-display text-base font-semibold text-brand-ink tabular">
+                    {f.stat}
+                  </span>
+                  <span className="label-eyebrow !text-[0.58rem]">{f.statLabel}</span>
+                </div>
               </div>
-              <h3 className="font-display text-4xl lg:text-5xl text-brand-ink leading-tight">
-                Knows <em className="italic text-brand-deep">{f.display}</em>.
+
+              <h3 className="font-display text-2xl lg:text-3xl font-semibold text-brand-ink leading-tight">
+                {f.title}
               </h3>
-              <p className="mt-5 text-brand-ink/65 text-base lg:text-lg leading-relaxed max-w-lg">
+              <p className="mt-4 text-brand-muted leading-relaxed max-w-md">
                 {f.body}
               </p>
-              <div className="mt-8 inline-flex items-baseline gap-4 px-5 py-3 bg-brand-ink/[0.035] border border-brand-rule rounded-full">
-                <span className="font-display text-3xl text-brand-ink tabular">{f.stat}</span>
-                <span className="label-eyebrow !tracking-wider">{f.statLabel}</span>
-              </div>
+
+              {/* Subtle hover accent line */}
+              <div
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-brand-blue via-brand-electric to-brand-live opacity-0 group-hover:opacity-100 transition-opacity"
+              />
             </motion.article>
           ))}
         </div>

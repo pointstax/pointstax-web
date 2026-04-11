@@ -12,19 +12,30 @@ export function Nav() {
 
   return (
     <nav
-      className={`sticky top-0 z-40 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'backdrop-blur-xl bg-brand-paper/92 border-b border-brand-rule/60 shadow-ink'
-          : 'bg-brand-paper/0 border-b border-transparent'
+          ? 'backdrop-blur-2xl bg-brand-ink/70 border-b border-white/10'
+          : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 lg:px-10 py-5">
-        <Logo />
-        <div className="flex items-center gap-8">
-          <span className="label-eyebrow hidden md:inline">Est. 2026 · New York</span>
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 lg:px-10 py-4">
+        <Logo dark />
+        <div className="flex items-center gap-6">
+          <a
+            href="#features"
+            className="hidden md:inline font-mono text-[0.72rem] uppercase tracking-widest text-white/55 hover:text-white transition-colors"
+          >
+            Features
+          </a>
+          <a
+            href="#how"
+            className="hidden md:inline font-mono text-[0.72rem] uppercase tracking-widest text-white/55 hover:text-white transition-colors"
+          >
+            How it works
+          </a>
           <a
             href="#hero-form"
-            className="group relative inline-flex items-center gap-2 rounded-full bg-brand-ink px-5 py-2.5 text-sm font-medium text-brand-paper transition-all hover:bg-brand-deep"
+            className="group inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-brand-ink transition-all hover:bg-brand-ice"
           >
             <span>Get early access</span>
             <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>

@@ -7,57 +7,53 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
-    font-feature-settings: 'ss01', 'cv11', 'calt';
   }
   body {
-    @apply bg-brand-paper text-brand-ink font-sans;
-    font-feature-settings: 'ss01', 'cv11', 'kern', 'calt';
+    @apply bg-brand-canvas text-brand-ink font-sans;
+    font-feature-settings: 'ss01', 'ss02', 'cv11', 'calt';
   }
   ::selection {
-    background: #0A1929;
-    color: #E9B44C;
+    background: #10B981;
+    color: #0B0F1A;
   }
 }
 
 @layer components {
   .label-eyebrow {
-    @apply font-mono text-[0.68rem] uppercase tracking-widest text-brand-ink/55;
-  }
-  .display-italic {
-    @apply font-display italic;
+    @apply font-mono text-[0.68rem] uppercase tracking-widest text-brand-muted;
   }
   .tabular {
     font-variant-numeric: tabular-nums;
   }
-  .rule-top {
-    @apply border-t border-brand-rule/70;
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/10;
   }
-  .rule-bottom {
-    @apply border-b border-brand-rule/70;
+  .glass-light {
+    @apply bg-white/70 backdrop-blur-xl border border-brand-rule;
   }
-  .grain::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.035;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  .kbd {
+    @apply inline-flex items-center justify-center rounded-md border border-brand-rule bg-brand-canvas px-1.5 py-0.5 font-mono text-[0.7rem] text-brand-muted shadow-[0_1px_0_rgba(0,0,0,0.04)];
+  }
+  .kbd-dark {
+    @apply inline-flex items-center justify-center rounded-md border border-white/15 bg-white/5 px-1.5 py-0.5 font-mono text-[0.7rem] text-white/70;
   }
 }
 
 @layer utilities {
-  .mask-fade-r {
-    mask-image: linear-gradient(to right, black 70%, transparent);
-    -webkit-mask-image: linear-gradient(to right, black 70%, transparent);
-  }
   .mask-fade-edges {
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 60%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
-/* Page load reveal — staggered on direct children */
+/* Staggered reveal for hero children */
 .reveal-stagger > * {
   opacity: 0;
   transform: translateY(24px);

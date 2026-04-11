@@ -15,7 +15,7 @@ const STORAGE_KEY = 'pointstax_waitlist_submitted'
 export function WaitlistForm({
   source,
   placeholder = 'you@email.com',
-  buttonLabel = 'Join the waitlist',
+  buttonLabel = 'Request early access',
   className = '',
 }: WaitlistFormProps) {
   const [email, setEmail] = useState('')
@@ -44,22 +44,31 @@ export function WaitlistForm({
     }
   }
 
-  // Darker context for dark backgrounds (FinalCTA)
-  const isDark = source === 'final-cta'
+  const isDark = source === 'hero' || source === 'final-cta'
 
   if (status === 'success') {
     return (
       <div
-        className={`relative flex items-center gap-4 px-6 py-5 rounded-full border ${
+        className={`relative flex items-center gap-4 px-6 py-5 rounded-2xl border ${
           isDark
-            ? 'border-brand-gold/40 bg-brand-gold/10 text-brand-paper'
-            : 'border-brand-gold/50 bg-brand-gold/10 text-brand-ink'
+            ? 'border-brand-live/40 bg-brand-live/10 text-white'
+            : 'border-brand-live/40 bg-brand-live/5 text-brand-ink'
         } ${className}`}
       >
-        <span className="font-display text-3xl italic text-brand-gold leading-none">✓</span>
+        <span className="relative flex h-7 w-7 items-center justify-center rounded-full bg-brand-live">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M5 13l4 4L19 7"
+              stroke="white"
+              strokeWidth="2.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
         <div>
-          <div className="font-display text-lg italic">You're on the list.</div>
-          <div className={`label-eyebrow !tracking-wider ${isDark ? '!text-brand-paper/65' : ''}`}>
+          <div className="font-medium">You're on the list.</div>
+          <div className={`label-eyebrow !tracking-wider mt-0.5 ${isDark ? '!text-white/55' : ''}`}>
             We'll be in touch before launch
           </div>
         </div>
@@ -70,10 +79,10 @@ export function WaitlistForm({
   return (
     <form onSubmit={handleSubmit} className={`w-full ${className}`}>
       <div
-        className={`group relative flex items-center rounded-full transition-all duration-300 border-2 ${
+        className={`group relative flex items-center rounded-2xl transition-all duration-300 border ${
           isDark
-            ? 'bg-brand-paper/5 backdrop-blur-sm border-brand-paper/20 focus-within:border-brand-gold'
-            : 'bg-white border-brand-rule focus-within:border-brand-ink shadow-sm focus-within:shadow-lg'
+            ? 'bg-white/[0.06] backdrop-blur-xl border-white/15 focus-within:border-brand-live/60 focus-within:bg-white/[0.08]'
+            : 'bg-brand-surface border-brand-rule focus-within:border-brand-ink shadow-sm focus-within:shadow-cardSoft'
         }`}
       >
         <input
@@ -83,20 +92,20 @@ export function WaitlistForm({
           onChange={(e) => setEmail(e.target.value)}
           placeholder={placeholder}
           aria-label="Email address"
-          className={`flex-1 bg-transparent pl-6 lg:pl-8 pr-2 py-5 font-sans text-base outline-none placeholder:font-display placeholder:italic ${
+          className={`flex-1 bg-transparent pl-5 lg:pl-6 pr-2 py-4 text-base outline-none ${
             isDark
-              ? 'text-brand-paper placeholder:text-brand-paper/40'
-              : 'text-brand-ink placeholder:text-brand-ink/40'
+              ? 'text-white placeholder:text-white/35'
+              : 'text-brand-ink placeholder:text-brand-muted'
           }`}
           disabled={status === 'loading'}
         />
         <button
           type="submit"
           disabled={status === 'loading'}
-          className={`m-1.5 flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium transition-all ${
+          className={`m-1.5 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium transition-all ${
             isDark
-              ? 'bg-brand-gold text-brand-ink hover:bg-brand-goldSoft'
-              : 'bg-brand-ink text-brand-paper hover:bg-brand-deep'
+              ? 'bg-white text-brand-ink hover:bg-brand-ice'
+              : 'bg-brand-ink text-white hover:bg-brand-deep'
           } disabled:opacity-50`}
         >
           <span>{status === 'loading' ? 'Submitting…' : buttonLabel}</span>
@@ -104,10 +113,7 @@ export function WaitlistForm({
         </button>
       </div>
       {status === 'error' && (
-        <p
-          className={`mt-3 text-sm font-mono ${isDark ? 'text-brand-gold' : 'text-red-600'}`}
-          role="alert"
-        >
+        <p className="mt-3 text-sm font-mono text-brand-live" role="alert">
           {message}
         </p>
       )}
