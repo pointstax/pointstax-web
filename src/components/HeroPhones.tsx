@@ -1,4 +1,18 @@
+import type { CSSProperties } from 'react'
 import { motion } from 'framer-motion'
+
+const PHONE_BASE: CSSProperties = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  width: 160,
+  height: 300,
+  borderRadius: 28,
+  overflow: 'hidden',
+  background: 'linear-gradient(160deg, #1a2332, #0d1520)',
+  marginTop: -150,
+  marginLeft: -80,
+}
 
 function StatusBar() {
   return (
@@ -11,21 +25,8 @@ function StatusBar() {
 }
 
 export function HeroPhones() {
-  const phoneBase = {
-    position: 'absolute' as const,
-    top: '50%',
-    left: '50%',
-    width: 160,
-    height: 300,
-    borderRadius: 28,
-    overflow: 'hidden' as const,
-    background: 'linear-gradient(160deg, #1a2332, #0d1520)',
-    marginTop: -150,
-    marginLeft: -80,
-  }
-
   return (
-    <div style={{ position: 'relative', height: 400 }}>
+    <div style={{ position: 'relative', height: 400, overflow: 'visible' }}>
       {/* Radial glow behind phone 2 */}
       <div
         aria-hidden="true"
@@ -48,7 +49,7 @@ export function HeroPhones() {
         animate={{ opacity: 1, x: -40, rotate: -10, y: 20 }}
         transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         style={{
-          ...phoneBase,
+          ...PHONE_BASE,
           border: '1.5px solid rgba(255,255,255,0.15)',
           boxShadow: '0 24px 60px rgba(0,0,0,0.6)',
           zIndex: 1,
@@ -104,7 +105,7 @@ export function HeroPhones() {
         animate={{ opacity: 1, x: 40, rotate: 8, y: -10 }}
         transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         style={{
-          ...phoneBase,
+          ...PHONE_BASE,
           border: '1.5px solid rgba(37,99,235,0.3)',
           boxShadow: '0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(37,99,235,0.25), 0 0 40px rgba(37,99,235,0.15)',
           zIndex: 3,
