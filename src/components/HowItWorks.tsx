@@ -8,13 +8,13 @@ const steps = [
   },
   {
     num: '02',
-    title: 'Open before you pay',
-    body: "One tap at checkout. PointStax knows the merchant, your location, and your portfolio — and hands you the right answer instantly.",
+    title: 'Get smart recommendations',
+    body: "We tell you exactly which card to use, based on where you are and what you're buying.",
   },
   {
     num: '03',
-    title: 'Watch the stack compound',
-    body: 'Real redemption value, tracked automatically. Category by category. Card by card. Points that actually mean something.',
+    title: 'Earn more, spend smarter',
+    body: 'Watch your rewards stack up and see your real redemption value grow — every single purchase.',
   },
 ]
 
