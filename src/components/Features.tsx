@@ -3,31 +3,31 @@ import { motion } from 'framer-motion'
 const features = [
   {
     num: '01',
-    title: 'Context-aware reasoning',
-    body: 'Every purchase is evaluated against your entire wallet, your location, the merchant category, and active bonuses — in under 60ms.',
+    title: 'AI-powered recommendations',
+    body: 'Advanced AI analyzes your spending and tells you exactly which card to use, every time.',
     stat: '60ms',
-    statLabel: 'inference time',
+    statLabel: 'INFERENCE TIME',
   },
   {
     num: '02',
-    title: 'Portfolio intelligence',
-    body: 'PointStax understands the full shape of your rewards portfolio: sign-up bonuses, spending caps, expiring points, and transfer partners.',
+    title: 'Location-aware',
+    body: 'Powered by where you are. The best card for every store, every restaurant, every gas station.',
     stat: '∞',
-    statLabel: 'cards supported',
+    statLabel: 'STORES COVERED',
   },
   {
     num: '03',
-    title: 'Real-world value',
-    body: "Not marketing math. We calculate the actual redemption value per point — so you know when to hoard, burn, and transfer.",
+    title: 'All your cards in one place',
+    body: 'Your full rewards portfolio, balances, perks, and benefits — at a glance.',
     stat: '1.8¢',
-    statLabel: 'avg. value per point',
+    statLabel: 'AVG PT VALUE',
   },
   {
     num: '04',
-    title: 'Quietly proactive',
-    body: 'Notices when a card hits its quarterly cap, when a sign-up bonus window closes, when an annual credit resets. Handles the math so you don\'t.',
+    title: 'See your real value',
+    body: 'Know what your points are actually worth. We calculate real redemption value so you can spend smarter.',
     stat: '24/7',
-    statLabel: 'background monitoring',
+    statLabel: 'MONITORING',
   },
 ]
 
