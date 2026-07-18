@@ -26,7 +26,7 @@ function StatusBar() {
 
 export function HeroPhones() {
   return (
-    <div style={{ position: 'relative', height: 400, overflow: 'visible' }}>
+    <div style={{ position: 'relative', height: 620, overflow: 'visible' }}>
       {/* Radial glow behind phone 2 */}
       <div
         aria-hidden="true"
@@ -45,8 +45,8 @@ export function HeroPhones() {
 
       {/* Phone 1 — Card List (back, left) */}
       <motion.div
-        initial={{ opacity: 0, x: -20, rotate: -14 }}
-        animate={{ opacity: 1, x: -40, rotate: -10, y: 20 }}
+        initial={{ opacity: 0, x: -20, rotate: -14, scale: 1.5 }}
+        animate={{ opacity: 1, x: -52, rotate: -10, y: 26, scale: 1.5 }}
         transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         style={{
           ...PHONE_BASE,
@@ -101,8 +101,8 @@ export function HeroPhones() {
 
       {/* Phone 2 — Live Recommendation (front, right) */}
       <motion.div
-        initial={{ opacity: 0, x: 20, rotate: 4 }}
-        animate={{ opacity: 1, x: 40, rotate: 8, y: -10 }}
+        initial={{ opacity: 0, x: 20, rotate: 4, scale: 1.5 }}
+        animate={{ opacity: 1, x: 52, rotate: 8, y: -10, scale: 1.5 }}
         transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         style={{
           ...PHONE_BASE,
