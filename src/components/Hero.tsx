@@ -57,7 +57,7 @@ export function Hero() {
           <div className="reveal-stagger">
             <h1 className="font-display text-display-xl font-semibold text-white text-balance">
               Every point,{' '}
-              <span className="bg-gradient-to-br from-brand-ice via-white to-brand-sky bg-clip-text text-transparent">
+              <span className="bg-gradient-to-br from-brand-goldMist via-white to-brand-goldBright bg-clip-text text-transparent">
                 perfectly used.
               </span>
             </h1>

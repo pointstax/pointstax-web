@@ -34,7 +34,7 @@ export function FAQ() {
         <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start">
           <div>
             <div className="inline-flex items-center gap-2 mb-5">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
               <span className="label-eyebrow">FAQ</span>
             </div>
             <h2 className="font-display text-display-md font-semibold text-brand-ink text-balance">
@@ -44,7 +44,7 @@ export function FAQ() {
               Still curious? Email{' '}
               <a
                 href="mailto:support@pointstax.ai"
-                className="text-brand-ink underline decoration-brand-live decoration-2 underline-offset-4 hover:text-brand-deep transition-colors"
+                className="text-brand-ink underline decoration-brand-live decoration-2 underline-offset-4 hover:text-brand-goldDeep transition-colors"
               >
                 support@pointstax.ai
               </a>{' '}
@@ -76,7 +76,7 @@ export function FAQ() {
                     <span
                       className={`flex-shrink-0 flex items-center justify-center h-7 w-7 rounded-full border transition-all duration-500 ${
                         expanded
-                          ? 'border-brand-blue bg-brand-blue text-white rotate-45'
+                          ? 'border-brand-gold bg-brand-gold text-white rotate-45'
                           : 'border-brand-rule text-brand-muted group-hover:border-brand-ink group-hover:text-brand-ink'
                       }`}
                       aria-hidden="true"

@@ -37,7 +37,7 @@ export function Features() {
       <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10">
         <div className="max-w-2xl mb-16">
           <div className="inline-flex items-center gap-2 mb-5">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
             <span className="label-eyebrow">System</span>
           </div>
           <h2 className="font-display text-display-lg font-semibold text-brand-ink text-balance">
@@ -79,7 +79,7 @@ export function Features() {
               {/* Subtle hover accent line */}
               <div
                 aria-hidden="true"
-                className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-brand-blue via-brand-electric to-brand-live opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-brand-gold via-brand-goldDeep to-brand-live opacity-0 group-hover:opacity-100 transition-opacity"
               />
             </motion.article>
           ))}

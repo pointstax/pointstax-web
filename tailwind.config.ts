@@ -6,16 +6,18 @@ export default {
     extend: {
       colors: {
         brand: {
-          // Core blues
-          deep: '#1D4ED8',
-          deepAlt: '#1E40AF',
-          blue: '#2563EB',
-          blueAlt: '#3B82F6',
-          sky: '#60A5FA',
-          skyAlt: '#93C5FD',
-          ice: '#BFDBFE',
-          iceAlt: '#DBEAFE',
-          iceLight: '#EFF6FF',
+          // Gold brand accent (2026 rebrand — replaces the former blue ramp).
+          // Ordered dark → light so goldDeep works as readable link/text on white
+          // and gold/goldBright carry accents and highlights on dark.
+          goldDeep: '#9A7A1E',
+          goldDeepAlt: '#7C6118',
+          gold: '#E8BC4A',
+          goldSoft: '#F0C860',
+          goldBright: '#F4D06A',
+          goldPale: '#F7DE9A',
+          goldMist: '#FBEAB8',
+          goldMistAlt: '#FDF3D6',
+          goldTint: '#FEF9EC',
           // Neutrals (cool modern)
           canvas: '#FAFBFD',
           surface: '#FFFFFF',
@@ -28,9 +30,8 @@ export default {
           rule: '#E2E8F0',
           ruleSoft: '#F1F5F9',
           // Accent signals
-          live: '#10B981',               // mint for "live" pulses
+          live: '#10B981',               // mint for "live" pulses / success / $ value
           liveSoft: '#34D399',
-          electric: '#7C3AED',           // electric purple accent (modern AI)
         },
       },
       fontFamily: {
@@ -53,18 +54,18 @@ export default {
       },
       backgroundImage: {
         'mesh-hero':
-          'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(37, 99, 235, 0.35), transparent 60%), radial-gradient(ellipse 60% 50% at 20% 100%, rgba(124, 58, 237, 0.28), transparent 60%), radial-gradient(ellipse 50% 50% at 85% 80%, rgba(16, 185, 129, 0.18), transparent 60%)',
+          'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(232, 188, 74, 0.30), transparent 60%), radial-gradient(ellipse 60% 50% at 20% 100%, rgba(124, 58, 237, 0.10), transparent 60%), radial-gradient(ellipse 50% 50% at 85% 80%, rgba(16, 185, 129, 0.16), transparent 60%)',
         'mesh-soft':
-          'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37, 99, 235, 0.08), transparent 55%), radial-gradient(ellipse 50% 40% at 100% 100%, rgba(124, 58, 237, 0.06), transparent 60%)',
+          'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 188, 74, 0.08), transparent 55%), radial-gradient(ellipse 50% 40% at 100% 100%, rgba(124, 58, 237, 0.05), transparent 60%)',
         'grid-dark':
           'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px)',
         'grid-light':
           'linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px), linear-gradient(to right, rgba(15,23,42,0.04) 1px, transparent 1px)',
       },
       boxShadow: {
-        card: '0 30px 60px -24px rgba(29, 78, 216, 0.28), 0 10px 22px -12px rgba(10, 14, 26, 0.18)',
-        cardSoft: '0 20px 50px -20px rgba(29, 78, 216, 0.14)',
-        cardLg: '0 50px 100px -30px rgba(10, 14, 26, 0.2), 0 10px 30px -10px rgba(29, 78, 216, 0.12)',
+        card: '0 30px 60px -24px rgba(200, 154, 50, 0.24), 0 10px 22px -12px rgba(10, 14, 26, 0.18)',
+        cardSoft: '0 20px 50px -20px rgba(200, 154, 50, 0.14)',
+        cardLg: '0 50px 100px -30px rgba(10, 14, 26, 0.2), 0 10px 30px -10px rgba(200, 154, 50, 0.14)',
         glass: '0 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 20px 60px -20px rgba(0, 0, 0, 0.4)',
         glow: '0 0 0 1px rgba(16, 185, 129, 0.35), 0 0 60px rgba(16, 185, 129, 0.25)',
         ring: '0 0 0 8px rgba(16, 185, 129, 0.08)',

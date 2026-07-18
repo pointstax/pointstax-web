@@ -35,7 +35,7 @@ export function Nav() {
           </a>
           <a
             href="#hero-form"
-            className="group inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-brand-ink transition-all hover:bg-brand-ice"
+            className="group inline-flex items-center gap-2 rounded-full bg-brand-gold px-4 py-2 text-sm font-semibold text-brand-ink transition-all hover:bg-brand-goldSoft"
           >
             <span>Get early access</span>
             <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>

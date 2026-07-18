@@ -104,8 +104,8 @@ export function WaitlistForm({
           disabled={status === 'loading'}
           className={`m-1.5 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium transition-all ${
             isDark
-              ? 'bg-white text-brand-ink hover:bg-brand-ice'
-              : 'bg-brand-ink text-white hover:bg-brand-deep'
+              ? 'bg-brand-gold text-brand-ink hover:bg-brand-goldSoft'
+              : 'bg-brand-ink text-white hover:bg-brand-goldDeep'
           } disabled:opacity-50`}
         >
           <span>{status === 'loading' ? 'Submitting…' : buttonLabel}</span>

@@ -9,7 +9,7 @@ export function Privacy() {
         <h1 className="text-4xl font-extrabold">Privacy Policy</h1>
         <p className="mt-2 text-sm text-brand-navy/60">Effective: April 10, 2026</p>
 
-        <div className="mt-4 rounded-xl border border-brand-ice bg-brand-iceLight px-5 py-3 text-sm text-brand-navy/80">
+        <div className="mt-4 rounded-xl border border-brand-goldMist bg-brand-goldTint px-5 py-3 text-sm text-brand-navy/80">
           <strong>Note:</strong> This is an interim draft. It will be replaced with a
           lawyer-reviewed version before public launch.
         </div>
@@ -158,7 +158,7 @@ export function Privacy() {
             </ul>
             <p>
               To exercise any of these rights, email{' '}
-              <a href="mailto:support@pointstax.ai" className="text-brand-deep">
+              <a href="mailto:support@pointstax.ai" className="text-brand-goldDeep">
                 support@pointstax.ai
               </a>
               . We'll respond within 30 days.
@@ -188,7 +188,7 @@ export function Privacy() {
             <h2 className="text-2xl font-bold">10. Contact Us</h2>
             <p>
               If you have questions about this Privacy Policy, email{' '}
-              <a href="mailto:support@pointstax.ai" className="text-brand-deep">
+              <a href="mailto:support@pointstax.ai" className="text-brand-goldDeep">
                 support@pointstax.ai
               </a>
               .

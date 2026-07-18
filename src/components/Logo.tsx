@@ -10,13 +10,13 @@ export function Logo({ className = '', showWordmark = true, dark = false }: Logo
       <img
         src="/logo.svg"
         alt="PointStax"
-        className="h-8 w-8 transition-transform group-hover:rotate-[6deg]"
-        width={32}
-        height={32}
+        className="h-10 w-10 transition-transform group-hover:rotate-[6deg]"
+        width={40}
+        height={40}
       />
       {showWordmark && (
         <span
-          className={`text-lg font-semibold tracking-tight leading-none ${
+          className={`text-[22px] font-semibold tracking-tight leading-none ${
             dark ? 'text-white' : 'text-brand-ink'
           }`}
         >

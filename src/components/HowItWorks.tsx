@@ -30,7 +30,7 @@ export function HowItWorks() {
       <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10">
         <div className="max-w-2xl mb-20">
           <div className="inline-flex items-center gap-2 mb-5">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-electric" />
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-goldDeep" />
             <span className="label-eyebrow">Flow</span>
           </div>
           <h2 className="font-display text-display-lg font-semibold text-brand-ink text-balance">
@@ -63,7 +63,7 @@ export function HowItWorks() {
             >
               {/* Node */}
               <div className="relative z-10 inline-flex items-center gap-3 rounded-full border border-brand-rule bg-brand-canvas px-4 py-2.5 shadow-cardSoft">
-                <span className="h-2 w-2 rounded-full bg-brand-blue" />
+                <span className="h-2 w-2 rounded-full bg-brand-gold" />
                 <span className="font-mono text-xs font-medium tracking-widest text-brand-ink">
                   {s.num}
                 </span>

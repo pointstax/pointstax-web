@@ -10,7 +10,7 @@ const notifications = [
     title: 'At Blue Bottle Coffee',
     body: 'Use Chase Sapphire Preferred · 3× on dining',
     earned: '+21 pts',
-    accent: 'from-brand-blue to-brand-electric',
+    accent: 'from-brand-gold to-brand-goldDeep',
   },
   {
     time: '12:16',

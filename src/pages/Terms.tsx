@@ -9,7 +9,7 @@ export function Terms() {
         <h1 className="text-4xl font-extrabold">Terms of Service</h1>
         <p className="mt-2 text-sm text-brand-navy/60">Effective: April 10, 2026</p>
 
-        <div className="mt-4 rounded-xl border border-brand-ice bg-brand-iceLight px-5 py-3 text-sm text-brand-navy/80">
+        <div className="mt-4 rounded-xl border border-brand-goldMist bg-brand-goldTint px-5 py-3 text-sm text-brand-navy/80">
           <strong>Note:</strong> This is an interim draft. It will be replaced with a
           lawyer-reviewed version before public launch.
         </div>
@@ -46,7 +46,7 @@ export function Terms() {
             </p>
             <p>
               You agree to notify us immediately at{' '}
-              <a href="mailto:support@pointstax.ai" className="text-brand-deep">
+              <a href="mailto:support@pointstax.ai" className="text-brand-goldDeep">
                 support@pointstax.ai
               </a>{' '}
               if you suspect unauthorized access to your account.
@@ -171,7 +171,7 @@ export function Terms() {
             <p>
               You may stop using the Service at any time. To delete your account or
               waitlist entry, email{' '}
-              <a href="mailto:support@pointstax.ai" className="text-brand-deep">
+              <a href="mailto:support@pointstax.ai" className="text-brand-goldDeep">
                 support@pointstax.ai
               </a>
               .
@@ -211,7 +211,7 @@ export function Terms() {
             <h2 className="text-2xl font-bold">15. Contact Us</h2>
             <p>
               Questions about these Terms? Email{' '}
-              <a href="mailto:support@pointstax.ai" className="text-brand-deep">
+              <a href="mailto:support@pointstax.ai" className="text-brand-goldDeep">
                 support@pointstax.ai
               </a>
               .

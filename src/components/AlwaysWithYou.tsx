@@ -12,7 +12,7 @@ const scenarios = [
     place: 'Blue Bottle Coffee',
     card: 'Chase Sapphire Preferred',
     mult: '3×',
-    accent: 'from-brand-blue to-brand-electric',
+    accent: 'from-brand-gold to-brand-goldDeep',
   },
   {
     icon: 'cart',
@@ -36,7 +36,7 @@ const scenarios = [
     place: 'Shell · 9th & Market',
     card: 'Amex Blue Cash',
     mult: '3%',
-    accent: 'from-sky-400 to-brand-blue',
+    accent: 'from-sky-400 to-brand-gold',
   },
 ]
 
