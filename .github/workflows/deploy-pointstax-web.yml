@@ -1,0 +1,154 @@
+name: deploy-pointstax-web
+
+# ── What this does ────────────────────────────────────────────────────────────
+# 100% self-hosted, $0: builds the pointstax.ai landing SPA (Vite) on the
+# pointstax `platform-apps` self-hosted runner, then publishes the static files
+# to the Caddy web root on platform-infra over the private WireGuard LAN. The
+# build runs BEFORE the transfer, so a broken build never touches the live site.
+# `environment=none` = build-only validation (nothing is deployed).
+#
+# ── HOST TOPOLOGY (why this is a CROSS-HOST deploy) ───────────────────────────
+# pointstax.ai is served by the dockerized Caddy (`file_server`) from
+#     root * /opt/cidadel/pointstax-landing
+# on **platform-infra** (the Caddy/gateway host — WireGuard 10.0.1.10 / public
+# 178.156.141.55). But the only self-hosted runner the `pointstax` org has
+# (`actions.runner.pointstax.platform-apps`) lives on the OTHER host,
+# **platform-apps** (WireGuard 10.0.1.1 / public 178.156.253.208). Writing the
+# build on platform-apps would serve nothing publicly (the classic "3 green
+# deploys, site still stale" host-mismatch). So this job builds on platform-apps
+# and rsyncs the files ACROSS to platform-infra. Caddy's file_server reads the
+# filesystem at request time, so replacing the files takes effect immediately —
+# NO Caddy reload, no container touch. (A reload is only needed when the
+# Caddyfile itself changes.)
+#
+# ── CROSS-HOST TRANSPORT ──────────────────────────────────────────────────────
+# platform-apps -> platform-infra over the private WG LAN (root@10.0.1.10), using
+# the runner host's key /root/.ssh/id_ed25519. This CI host-to-host hop WORKS even
+# though workstation->host SSH is blocked on-path (it's a different network path,
+# over WireGuard). Same transport as strategiz-io/strategiz-core deploy-frontend.yml.
+# `IdentitiesOnly=yes` is load-bearing — it forces ssh to OFFER the -i key.
+#
+# ── ONE-TIME PREREQUISITE: authorize the pointstax runner's key on infra ──────
+# The pointstax platform-apps runner must be able to SSH to root@10.0.1.10. The
+# "Publish" step's preflight fails LOUDLY (before any destructive write) if it
+# can't. To authorize, once:
+#     # on platform-apps:               cat /root/.ssh/id_ed25519.pub
+#     # on platform-infra (10.0.1.10):  append that line to /root/.ssh/authorized_keys
+# All org runners are root on the same platform-apps box and share that key, and
+# strategiz's runner is already authorized — so pointstax's likely is too; the
+# preflight confirms it before touching the live site.
+#
+# ── ROLLBACK ──────────────────────────────────────────────────────────────────
+# The deploy snapshots the live dir to /opt/cidadel/pointstax-landing.previous on
+# platform-infra before the swap. To restore, on platform-apps:
+#     ssh -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes root@10.0.1.10 \
+#       'set -e; rm -rf /opt/cidadel/pointstax-landing && \
+#        mv /opt/cidadel/pointstax-landing.previous /opt/cidadel/pointstax-landing'
+#
+# Canonical method: cidadel-core/docs/runbooks/platform-github-actions-deploys.md
+# Full Deployment section + rollback: pointstax-web/CLAUDE.md
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'none = build-only validation; prod = build + publish to pointstax.ai'
+        type: choice
+        default: none
+        options: [none, prod]
+
+# The job only reads the repo. The runner sits on the prod-adjacent host and the
+# build runs untrusted npm lifecycle scripts, so hand it no token that can write.
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-pointstax-web
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: [self-hosted, platform-apps]
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Build the landing SPA
+        run: |
+          set -euo pipefail
+
+          npm ci
+          npm run build                                   # tsc -b && vite -> dist/
+          test -f dist/index.html || { echo "::error::dist/index.html missing - build failed"; exit 1; }
+
+          # Capture the freshly hashed entry bundle (e.g. /assets/index-XXXX.js) so
+          # later steps can PROVE the serving host swapped to THIS exact build.
+          NEW_ENTRY=$(awk 'match($0, /src="\/assets\/[^"]+\.js"/){ s=substr($0,RSTART,RLENGTH); sub(/^src="/,"",s); sub(/"$/,"",s); print s; exit }' dist/index.html)
+          test -n "$NEW_ENTRY" || { echo "::error::could not locate the built entry bundle in dist/index.html"; exit 1; }
+          echo "NEW_ENTRY=$NEW_ENTRY" >> "$GITHUB_ENV"
+          echo "built pointstax-web ($(find dist -type f | wc -l) files); entry bundle = $NEW_ENTRY"
+
+      - name: Publish to platform-infra (cross-host over WireGuard)
+        # Skip on environment=none (build-only validation).
+        if: inputs.environment == 'prod'
+        env:
+          DIR: /opt/cidadel/pointstax-landing
+        run: |
+          set -euo pipefail
+
+          SSH_OPTS="-i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKeyChecking=accept-new"
+          SSH="ssh ${SSH_OPTS} root@10.0.1.10"
+
+          # Preflight: prove the runner can reach the Caddy host BEFORE any write.
+          $SSH 'echo "reached platform-infra as $(id -un)@$(hostname)"' \
+            || { echo "::error::pointstax platform-apps runner cannot SSH to platform-infra (root@10.0.1.10)."; \
+                 echo "::error::Authorize the runner key: append platform-apps:/root/.ssh/id_ed25519.pub to platform-infra:/root/.ssh/authorized_keys (see CLAUDE.md)."; \
+                 exit 1; }
+
+          command -v rsync >/dev/null || { echo "::error::rsync not found on the runner (platform-apps)"; exit 1; }
+          $SSH 'command -v rsync >/dev/null' \
+            || { echo "::error::rsync not found on platform-infra — install it there (apt-get install -y rsync)"; exit 1; }
+
+          echo "==> deploying to ${DIR} on platform-infra (10.0.1.10)"
+
+          # Rollback safety: snapshot the live served dir as .previous before the swap.
+          $SSH "if [ -d '${DIR}' ]; then rm -rf '${DIR}.previous'; cp -a '${DIR}' '${DIR}.previous'; fi; mkdir -p '${DIR}'"
+
+          # Push the fresh build across WireGuard. --delete prunes anything not in
+          # dist/ (the served dir is a pure mirror of the build output).
+          rsync -a --delete -e "ssh ${SSH_OPTS}" dist/ "root@10.0.1.10:${DIR}/"
+          echo "deployed pointstax-web -> platform-infra:${DIR}  (rollback dir: ${DIR}.previous)"
+
+          # Prove the freshly-built bundle actually landed (not just that rsync exited 0).
+          $SSH "grep -qF '${NEW_ENTRY}' '${DIR}/index.html'" \
+            || { echo "::error::platform-infra:${DIR}/index.html does not reference ${NEW_ENTRY} after deploy"; exit 1; }
+          echo "OK: platform-infra:${DIR} now serves ${NEW_ENTRY}"
+
+      - name: Verify pointstax.ai serves the fresh bundle
+        # Public end-to-end check — prod only.
+        if: inputs.environment == 'prod'
+        env:
+          SITE_URL: https://pointstax.ai
+        run: |
+          set -euo pipefail
+
+          echo "==> asserting ${SITE_URL} now serves ${NEW_ENTRY} (the fresh build)"
+          BODY=""
+          for i in 1 2 3 4 5; do
+            BODY=$(curl -fsSL --max-time 20 "${SITE_URL}/" || true)
+            if printf '%s' "$BODY" | grep -qF "$NEW_ENTRY"; then
+              echo "OK: ${SITE_URL} references ${NEW_ENTRY}"
+              curl -fsSI --max-time 20 "${SITE_URL}${NEW_ENTRY}" | grep -i '^last-modified:' || true
+              exit 0
+            fi
+            echo "not serving ${NEW_ENTRY} yet (attempt ${i}/5) — retrying"; sleep 5
+          done
+          echo "::error::${SITE_URL} is NOT serving the freshly built bundle ${NEW_ENTRY} after deploy (still stale?)"
+          echo "--- served index.html (first 40 lines) ---"; printf '%s\n' "${BODY}" | head -40
+          exit 1
