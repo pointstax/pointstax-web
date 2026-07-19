@@ -14,7 +14,7 @@ const steps = [
   {
     num: '03',
     title: 'Earn more, spend smarter',
-    body: 'Watch your rewards stack up and see your real redemption value grow — every single purchase.',
+    body: 'Use the right card on every purchase, and never miss a perk you have to activate — that\'s real money most people leave behind.',
   },
 ]
 

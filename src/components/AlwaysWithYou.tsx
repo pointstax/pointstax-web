@@ -83,7 +83,7 @@ export function AlwaysWithYou() {
           <p className="mt-6 text-lg text-brand-muted max-w-xl leading-relaxed">
             PointStax reasons about context: where you are, what you're buying,
             what's in your wallet, and what it's actually worth. The answer is
-            instant. The earnings compound.
+            instant — the right card, every time.
           </p>
         </div>
 
@@ -148,19 +148,19 @@ export function AlwaysWithYou() {
             className="absolute inset-0 bg-mesh-hero opacity-60"
           />
           <div className="relative">
-            <div className="label-eyebrow !text-white/45">Daily total</div>
+            <div className="label-eyebrow !text-white/45">The wrong card costs</div>
             <div className="mt-2 flex items-baseline gap-3">
-              <span className="font-display text-5xl font-semibold text-white tabular">+1,445</span>
-              <span className="text-xl text-white/50">pts</span>
+              <span className="font-display text-5xl font-semibold text-white tabular">~$26</span>
+              <span className="text-xl text-white/50">a day</span>
             </div>
           </div>
           <div className="relative text-center md:text-right">
             <div className="text-xl font-medium text-white text-balance">
-              That's <span className="text-brand-live">$26.01</span> you would have
-              left on the table.
+              That's what most people leave on the table — every day, across
+              their whole wallet.
             </div>
             <div className="mt-1.5 label-eyebrow !text-white/40">
-              Times 365. Every year. Every card.
+              PointStax makes sure you don't. Every swipe.
             </div>
           </div>
         </div>

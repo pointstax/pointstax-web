@@ -77,7 +77,7 @@ export function AppScreenshots() {
               </p>
 
               <div className="mt-5 pt-4 border-t border-brand-rule flex items-center justify-between">
-                <span className="label-eyebrow !text-[0.6rem]">Earned</span>
+                <span className="label-eyebrow !text-[0.6rem]">You'd earn</span>
                 <span className="font-display text-lg font-semibold text-brand-ink tabular">
                   {n.earned}
                 </span>
@@ -86,7 +86,7 @@ export function AppScreenshots() {
           ))}
         </div>
 
-        {/* Daily total */}
+        {/* Bridge to the perks pillar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -94,18 +94,17 @@ export function AppScreenshots() {
           transition={{ duration: 1, delay: 0.4 }}
           className="mt-14 flex flex-col md:flex-row items-center justify-between gap-5 pt-10 border-t border-brand-rule"
         >
-          <div className="flex items-baseline gap-3">
-            <span className="label-eyebrow">Daily total</span>
-            <span className="font-display text-5xl font-semibold text-brand-ink tabular">+1,445</span>
-            <span className="text-xl text-brand-muted">pts</span>
-          </div>
-          <div className="text-center md:text-right">
-            <div className="text-base text-brand-ink">
-              That's <span className="font-semibold text-brand-live">$26.01</span> you would
-              have left on the table.
+          <div className="max-w-xs">
+            <span className="label-eyebrow">And that's just the swipes</span>
+            <div className="mt-2 font-display text-3xl font-semibold text-brand-ink leading-tight text-balance">
+              Never leave a perk on the table.
             </div>
-            <div className="mt-1 label-eyebrow !text-[0.6rem]">
-              × 365 days × every card in your wallet
+          </div>
+          <div className="text-center md:text-right max-w-md">
+            <div className="text-base text-brand-ink">
+              Expiring credits, 5% categories you forgot to activate, annual benefits —
+              often worth <span className="font-semibold text-brand-live">more</span> than
+              the everyday points. PointStax catches those too.
             </div>
           </div>
         </motion.div>

@@ -4,7 +4,7 @@ const features = [
   {
     num: '01',
     title: 'AI-powered recommendations',
-    body: 'Advanced AI analyzes your spending and tells you exactly which card to use, every time.',
+    body: 'Advanced AI weighs your cards, the merchant, and where you are — and tells you exactly which card to use, every time.',
     stat: '60ms',
     statLabel: 'INFERENCE TIME',
   },
@@ -17,17 +17,17 @@ const features = [
   },
   {
     num: '03',
-    title: 'All your cards in one place',
-    body: 'Your full rewards portfolio, balances, perks, and benefits — at a glance.',
-    stat: '1.8¢',
-    statLabel: 'AVG PT VALUE',
+    title: 'Never miss a perk',
+    body: 'Rotating 5% categories, credits that expire, annual benefits — we remind you to activate and use them before they\'re gone.',
+    stat: '0',
+    statLabel: 'PERKS MISSED',
   },
   {
     num: '04',
     title: 'See your real value',
     body: 'Know what your points are actually worth. We calculate real redemption value so you can spend smarter.',
-    stat: '24/7',
-    statLabel: 'MONITORING',
+    stat: '1.8¢',
+    statLabel: 'AVG PT VALUE',
   },
 ]
 

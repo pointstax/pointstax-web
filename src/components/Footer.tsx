@@ -9,8 +9,8 @@ export function Footer() {
           <div>
             <Logo />
             <p className="mt-5 text-sm text-brand-muted max-w-xs leading-relaxed">
-              The AI that goes where you go. Intelligent recommendations, zero credentials,
-              every point quietly compounded.
+              The AI that goes where you go. The right card on every swipe, every perk
+              you'd forget — zero credentials, zero account linking.
             </p>
           </div>
 

@@ -90,9 +90,9 @@ export function Hero() {
 
             {/* Trust ticker */}
             <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 pt-6 border-t border-white/10">
-              <TrustPill text="Bank-level encryption" />
-              <TrustPill text="Read-only access" />
+              <TrustPill text="No account linking" />
               <TrustPill text="No credit pull" />
+              <TrustPill text="No card numbers" />
             </div>
           </div>
 
