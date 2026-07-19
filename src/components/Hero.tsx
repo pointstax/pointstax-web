@@ -56,14 +56,14 @@ export function Hero() {
           {/* Left: headline + CTA */}
           <div className="reveal-stagger">
             <h1 className="font-display text-display-xl font-semibold text-white text-balance">
-              Every point,{' '}
+              Know your card.<br />
               <span className="bg-gradient-to-br from-brand-goldMist via-white to-brand-goldBright bg-clip-text text-transparent">
-                perfectly used.
+                Every swipe.
               </span>
             </h1>
 
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/60">
-              Maximize rewards on every purchase, across every card you own. PointStax knows exactly which card to use — before you swipe.
+              PointStax picks the best card for every purchase, wherever you are — and never lets you leave a perk on the table. No account linking, ever.
             </p>
 
             {LAUNCH_MODE === 'waitlist' ? (

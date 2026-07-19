@@ -70,8 +70,8 @@
       <circle cx="28" cy="22" r="5" fill="#10B981"/>
       <text x="48" y="29" font-family="'Geist Mono', ui-monospace, monospace" font-weight="600" font-size="15" letter-spacing="2" fill="#E8BC4A">COMING SOON</text>
     </g>
-    <text x="0" y="150" font-family="Geist, Inter, system-ui, sans-serif" font-weight="800" font-size="82" fill="#FFFFFF">Every point,</text>
-    <text x="0" y="242" font-family="Geist, Inter, system-ui, sans-serif" font-weight="800" font-size="82" fill="url(#head)">perfectly used.</text>
-    <text x="0" y="312" font-family="Geist, Inter, system-ui, sans-serif" font-weight="500" font-size="26" fill="#FFFFFF" opacity="0.6">Maximize rewards on every card, every purchase.</text>
+    <text x="0" y="150" font-family="Geist, Inter, system-ui, sans-serif" font-weight="800" font-size="82" fill="#FFFFFF">Know your card.</text>
+    <text x="0" y="242" font-family="Geist, Inter, system-ui, sans-serif" font-weight="800" font-size="82" fill="url(#head)">Every swipe.</text>
+    <text x="0" y="312" font-family="Geist, Inter, system-ui, sans-serif" font-weight="500" font-size="26" fill="#FFFFFF" opacity="0.6">The best card for every purchase. Never leave a perk on the table.</text>
   </g>
 </svg>

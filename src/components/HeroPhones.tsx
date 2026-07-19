@@ -59,7 +59,7 @@ export function HeroPhones() {
         <div style={{ padding: '10px 14px 6px' }}>
           <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.35)', marginBottom: 2 }}>Good morning, Gabriel</div>
           <div style={{ fontSize: 13, color: 'white', fontWeight: 700 }}>My Cards</div>
-          <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.4)', marginTop: 2 }}>3 cards · $2,847 pts this month</div>
+          <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.4)', marginTop: 2 }}>3 cards · always the right one</div>
         </div>
         <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', margin: '6px 10px' }} />
 
@@ -68,7 +68,7 @@ export function HeroPhones() {
           <div style={{ width: 28, height: 18, borderRadius: 4, background: 'linear-gradient(135deg, #1a1a6e, #2563EB)', flexShrink: 0 }} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 9, color: 'white', fontWeight: 600 }}>Chase Sapphire</div>
-            <div style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.4)' }}>1,240 pts earned</div>
+            <div style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.4)' }}>best for dining</div>
           </div>
           <div style={{ fontSize: 11, fontWeight: 800, color: '#60A5FA' }}>3×</div>
         </div>
@@ -78,7 +78,7 @@ export function HeroPhones() {
           <div style={{ width: 28, height: 18, borderRadius: 4, background: 'linear-gradient(135deg, #b8860b, #ffd700)', flexShrink: 0 }} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 9, color: 'white', fontWeight: 600 }}>Amex Gold</div>
-            <div style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.4)' }}>840 pts earned</div>
+            <div style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.4)' }}>best for groceries</div>
           </div>
           <div style={{ fontSize: 11, fontWeight: 800, color: '#ffd700' }}>4×</div>
         </div>
@@ -88,14 +88,14 @@ export function HeroPhones() {
           <div style={{ width: 28, height: 18, borderRadius: 4, background: 'linear-gradient(135deg, #0f4c81, #1a73e8)', flexShrink: 0 }} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 9, color: 'white', fontWeight: 600 }}>Citi Double Cash</div>
-            <div style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.4)' }}>767 pts earned</div>
+            <div style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.4)' }}>everything else</div>
           </div>
           <div style={{ fontSize: 11, fontWeight: 800, color: '#93C5FD' }}>2%</div>
         </div>
 
         {/* Earnings callout */}
         <div style={{ margin: '8px 10px 0', padding: '8px 10px', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)', borderRadius: 10 }}>
-          <span style={{ fontSize: 7.5, color: '#10B981', fontWeight: 600 }}>↑ You earned +$14.20 more this week</span>
+          <span style={{ fontSize: 7.5, color: '#10B981', fontWeight: 600 }}>⏰ Amex Gold $10 dining credit — 6 days left</span>
         </div>
       </motion.div>
 
@@ -182,7 +182,7 @@ export function HeroPhones() {
         }}
       >
         <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#10B981', flexShrink: 0 }} />
-        <span style={{ fontSize: 9, color: 'white', fontWeight: 600, fontFamily: 'monospace' }}>Today +3,240 pts</span>
+        <span style={{ fontSize: 9, color: 'white', fontWeight: 600, fontFamily: 'monospace' }}>2 perks expire soon</span>
       </motion.div>
     </div>
   )

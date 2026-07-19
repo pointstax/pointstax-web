@@ -1,11 +1,11 @@
 {
   "name": "PointStax",
   "short_name": "PointStax",
-  "description": "Every point, perfectly used.",
+  "description": "Know your card. Every swipe.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#E6F4FE",
-  "theme_color": "#2563EB",
+  "background_color": "#0B0F1A",
+  "theme_color": "#0B0F1A",
   "icons": [
     {
       "src": "/icon-192.png",
